@@ -1,0 +1,17 @@
+.sidebar {
+  width: 220px;
+  background-color: var(--surface-color);
+  padding: 20px 10px;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.sidebar-category {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: var(--text-secondary);
+  padding: 0 15px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

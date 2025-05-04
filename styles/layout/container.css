@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  min-height: calc(100vh - 120px);
+}
+
+.content-expanded {
+  margin-left: -160px;
+  transition: margin-left 0.3s ease;
+}

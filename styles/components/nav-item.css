@@ -1,0 +1,25 @@
+.nav-item {
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-item.active {
+  background-color: rgba(30, 136, 229, 0.2);
+  color: var(--primary-color);
+}
+
+.nav-item i {
+  margin-right: 15px;
+  font-size: 1.2rem;
+  width: 25px;
+  text-align: center;
+}
