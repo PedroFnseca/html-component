@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lepy Streaming</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <header></header>
+  
+  <div class="container">
+    <aside class="sidebar"></aside>
+    
+    <main class="content">
+      <section class="featured-content">
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/2yNnklW5HZU?si=jVomr6WqDGXnbhCX" frameborder="0" allowfullscreen></iframe>
+          <div class="video-info">
+            <h2>Premier League Highlights: Manchester City vs Liverpool</h2>
+            <p>Ao vivo • 245K espectadores</p>
+          </div>
+        </div>
+        
+        <div class="chat-container" id="chat-component">
+        </div>
+      </section>
+      
+      <section class="recommendations" id="recommendations-component">
+      </section>
+    </main>
+  </div>
+
+  <footer></footer>
+  
+  <script type="module" src="scripts/loaders/header.js"></script>
+  <script type="module" src="scripts/loaders/footer.js"></script>
+  <script type="module" src="scripts/loaders/sidebar.js"></script>
+  <script type="module" src="scripts/loaders/chat.js"></script>
+  <script type="module" src="scripts/chat.js"></script>
+  <script type="module" src="scripts/loaders/recommendations.js"></script>
+  <script type="module" src="scripts/video-manager.js"></script>
+</body>
+</html>
