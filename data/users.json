@@ -1,0 +1,64 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "FutebolFã92",
+      "avatar": "user1.png",
+      "level": "Torcedor Fanático"
+    },
+    {
+      "id": 2,
+      "username": "CidadeAzul",
+      "avatar": "user2.png",
+      "level": "Torcedor Elite"
+    },
+    {
+      "id": 3,
+      "username": "DiaboVermelho23",
+      "avatar": "user3.png",
+      "level": "Torcedor Lendário"
+    },
+    {
+      "id": 4,
+      "username": "LendaDoFutebol",
+      "avatar": "user4.png",
+      "level": "Analista Esportivo"
+    },
+    {
+      "id": 5,
+      "username": "Tiki_Taka",
+      "avatar": "user5.png",
+      "level": "Técnico Virtual"
+    },
+    {
+      "id": 6,
+      "username": "MestreDosGols",
+      "avatar": "user6.png",
+      "level": "Comentarista"
+    },
+    {
+      "id": 7,
+      "username": "FanáticoEsportes",
+      "avatar": "user7.png",
+      "level": "Torcedor"
+    },
+    {
+      "id": 8,
+      "username": "EspecialistaFutebol",
+      "avatar": "user8.png",
+      "level": "Expert em Futebol"
+    },
+    {
+      "id": 9,
+      "username": "CraqueDoSofá",
+      "avatar": "user9.png",
+      "level": "Torcedor Premium"
+    },
+    {
+      "id": 10,
+      "username": "BoleiroDePrimeira",
+      "avatar": "user10.png",
+      "level": "Ex-jogador"
+    }
+  ]
+}

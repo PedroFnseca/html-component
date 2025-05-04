@@ -1,0 +1,76 @@
+{
+  "general": [
+    "Que jogo incrível!",
+    "Esse time está jogando muito bem hoje!",
+    "O árbitro está errando demais!",
+    "Vamos lá, precisamos da vitória!",
+    "Que defesa espetacular do goleiro!",
+    "Esse técnico precisa fazer substituições",
+    "Falta mais criatividade no meio-campo",
+    "Que passe incrível!",
+    "Esse jogador está em grande fase",
+    "Esse time não está jogando nada hoje"
+  ],
+  "goals": [
+    "GOOOOOOOOOOOL!!!",
+    "Que golaço! Inacreditável!",
+    "Nossa, que finalização perfeita!",
+    "Esse atacante é uma máquina de fazer gols!",
+    "Esse foi um dos gols mais bonitos que já vi!",
+    "Não tinha como o goleiro defender esse chute!",
+    "Impressionante como ele fez esse gol!",
+    "Esse time sabe como balançar as redes!",
+    "Gol de classe mundial!",
+    "Artilheiro nato! Que finalização!"
+  ],
+  "defense": [
+    "Que defesa incrível!",
+    "Esse goleiro está impossível hoje!",
+    "A zaga está muito sólida nesse jogo",
+    "Defesa de outro mundo!",
+    "Como ele conseguiu defender isso?",
+    "Esse goleiro é o melhor do campeonato!",
+    "Defesa espetacular!",
+    "Essa defesa salvou o time!",
+    "Muralha defensiva hoje!",
+    "Ninguém passa por essa defesa hoje"
+  ],
+  "referee": [
+    "O árbitro está prejudicando meu time!",
+    "Isso foi falta clara!",
+    "Como não marcou esse pênalti???",
+    "Cartão vermelho na cara!",
+    "Esse árbitro precisa de óculos!",
+    "Decisão polêmica do árbitro",
+    "VAR, cadê você?",
+    "Arbitragem vergonhosa nesse jogo",
+    "Juiz caseiro, impossível!",
+    "Decisão correta do árbitro, não foi nada"
+  ],
+  "tactics": [
+    "Esse técnico precisa mudar a tática",
+    "Por que ele não coloca o atacante reserva?",
+    "Formação tática perfeita hoje",
+    "O meio-campo está dominando o jogo",
+    "Precisamos de mais presença na área",
+    "A estratégia está funcionando perfeitamente",
+    "Esse esquema tático não funciona contra esse adversário",
+    "O técnico acertou nas substituições",
+    "Contra-ataque mortal!",
+    "A posse de bola está fazendo a diferença"
+  ],
+  "reactions": [
+    "😍",
+    "👏👏👏",
+    "🔥🔥🔥",
+    "⚽️❤️",
+    "😱",
+    "🤩",
+    "💪",
+    "👑",
+    "🏆",
+    "😭",
+    "😡",
+    "🙏"
+  ]
+}
