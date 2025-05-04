@@ -1,0 +1,66 @@
+.recommendations {
+  margin-top: 30px;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.video-card {
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.video-card img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  height: 140px;
+  object-fit: cover;
+  transition: opacity 0.2s;
+}
+
+.video-card:hover img {
+  opacity: 0.9;
+}
+
+.video-card .video-info {
+  padding: 10px;
+  background-color: var(--surface-color);
+}
+
+.video-card::before {
+  content: "\f04b";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  font-size: 2rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.3s;
+  z-index: 2;
+}
+
+.video-card:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}

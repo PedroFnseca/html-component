@@ -1,0 +1,59 @@
+{
+  "matches": [
+    {
+      "id": 1,
+      "title": "Premier League: Manchester City vs Liverpool",
+      "teams": ["Manchester City", "Liverpool"],
+      "score": "2-2",
+      "time": "87'",
+      "viewers": "245K",
+      "thumbnail": "https://i.ytimg.com/vi/2yNnklW5HZU/hqdefault.jpg",
+      "videoId": "2yNnklW5HZU",
+      "live": true
+    },
+    {
+      "id": 2,
+      "title": "Champions League: Real Madrid vs Bayern Munich",
+      "teams": ["Real Madrid", "Bayern Munich"],
+      "score": "3-1",
+      "time": "Concluído",
+      "viewers": "3.2M",
+      "thumbnail": "https://i.ytimg.com/vi/SUXcL6lLDIw/hqdefault.jpg",
+      "videoId": "SUXcL6lLDIw",
+      "live": false
+    },
+    {
+      "id": 3,
+      "title": "Barcelona vs PSG - Quartas de Final",
+      "teams": ["Barcelona", "PSG"],
+      "score": "2-0",
+      "time": "Concluído",
+      "viewers": "1.5M",
+      "thumbnail": "https://i.ytimg.com/vi/S7lajwfqDVM/hqdefault.jpg",
+      "videoId": "S7lajwfqDVM",
+      "live": false
+    },
+    {
+      "id": 4,
+      "title": "Bundesliga: Borussia Dortmund vs Bayern Munich",
+      "teams": ["Borussia Dortmund", "Bayern Munich"],
+      "score": "1-3",
+      "time": "Concluído",
+      "viewers": "2.1M",
+      "thumbnail": "https://i.ytimg.com/vi/hU4b_go7Jlo/hqdefault.jpg",
+      "videoId": "hU4b_go7Jlo",
+      "live": false
+    },
+    {
+      "id": 5,
+      "title": "Premier League: Arsenal vs Tottenham",
+      "teams": ["Arsenal", "Tottenham"],
+      "score": "2-1",
+      "time": "Concluído",
+      "viewers": "1.7M",
+      "thumbnail": "https://i.ytimg.com/vi/GJfwn8GPalA/hqdefault.jpg",
+      "videoId": "GJfwn8GPalA",
+      "live": false
+    }
+  ]
+}
