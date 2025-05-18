@@ -1,0 +1,78 @@
+.featured-banner {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.banner-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.banner-slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.banner-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  width: 100%;
+  color: white;
+}
+
+.banner-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.banner-text {
+  flex: 1;
+}
+
+.banner-info h2 {
+  margin: 8px 0;
+  font-size: 24px;
+}
+
+.watch-now-btn {
+  background-color: #6441a5;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+@media (max-width: 576px) {
+  .banner-info h2 {
+    font-size: 18px;
+  }
+  
+  .banner-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .banner-action {
+    margin-top: 10px;
+    align-self: flex-end;
+  }
+}

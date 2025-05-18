@@ -8,7 +8,17 @@
       "time": "87'",
       "viewers": "245K",
       "videoId": "2yNnklW5HZU",
-      "live": true
+      "live": true,
+      "league": "Premier League",
+      "featured": true,
+      "matchType": "championship",
+      "stats": {
+        "possession": [58, 42],
+        "shots": [15, 9],
+        "shotsOnTarget": [7, 4],
+        "corners": [6, 3],
+        "fouls": [8, 10]
+      }
     },
     {
       "id": 2,
@@ -18,7 +28,18 @@
       "time": "Concluído",
       "viewers": "3.2M",
       "videoId": "SUXcL6lLDIw",
-      "live": false
+      "live": false,
+      "league": "Champions League",
+      "matchType": "knockout",
+      "date": "2023-05-10T20:45:00Z",
+      "highlights": true,
+      "stats": {
+        "possession": [45, 55],
+        "shots": [12, 18],
+        "shotsOnTarget": [7, 5],
+        "corners": [4, 9],
+        "fouls": [14, 8]
+      }
     },
     {
       "id": 3,
@@ -28,7 +49,18 @@
       "time": "Concluído",
       "viewers": "1.5M",
       "videoId": "S7lajwfqDVM",
-      "live": false
+      "live": false,
+      "league": "Champions League",
+      "matchType": "knockout",
+      "date": "2023-04-18T20:00:00Z",
+      "fullMatch": true,
+      "stats": {
+        "possession": [64, 36],
+        "shots": [17, 8],
+        "shotsOnTarget": [9, 3],
+        "corners": [8, 2],
+        "fouls": [7, 12]
+      }
     },
     {
       "id": 4,
@@ -38,7 +70,18 @@
       "time": "Concluído",
       "viewers": "2.1M",
       "videoId": "hU4b_go7Jlo",
-      "live": false
+      "live": false,
+      "league": "Bundesliga",
+      "matchType": "derby",
+      "date": "2023-04-01T17:30:00Z",
+      "highlights": true,
+      "stats": {
+        "possession": [38, 62],
+        "shots": [9, 14],
+        "shotsOnTarget": [4, 8],
+        "corners": [3, 7],
+        "fouls": [15, 6]
+      }
     },
     {
       "id": 5,
@@ -48,7 +91,141 @@
       "time": "Concluído",
       "viewers": "1.7M",
       "videoId": "GJfwn8GPalA",
-      "live": false
+      "live": false,
+      "league": "Premier League",
+      "matchType": "derby",
+      "date": "2023-03-14T16:00:00Z",
+      "highlights": true,
+      "stats": {
+        "possession": [52, 48],
+        "shots": [13, 11],
+        "shotsOnTarget": [5, 4],
+        "corners": [7, 5],
+        "fouls": [9, 12]
+      }
+    },
+    {
+      "id": 6,
+      "title": "Copa Libertadores: Flamengo vs River Plate",
+      "teams": ["Flamengo", "River Plate"],
+      "score": "0-0",
+      "time": "34'",
+      "viewers": "198K",
+      "videoId": "LkQFJJv5wJQ",
+      "live": true,
+      "league": "Copa Libertadores",
+      "matchType": "groupStage",
+      "stats": {
+        "possession": [47, 53],
+        "shots": [4, 6],
+        "shotsOnTarget": [1, 2],
+        "corners": [2, 4],
+        "fouls": [7, 5]
+      }
+    },
+    {
+      "id": 7,
+      "title": "La Liga: Atletico Madrid vs Sevilla",
+      "teams": ["Atletico Madrid", "Sevilla"],
+      "score": "1-0",
+      "time": "HT",
+      "viewers": "132K",
+      "videoId": "AZ5ckmMtfrQ",
+      "live": true,
+      "league": "La Liga",
+      "matchType": "championship",
+      "stats": {
+        "possession": [56, 44],
+        "shots": [8, 3],
+        "shotsOnTarget": [3, 0],
+        "corners": [5, 1],
+        "fouls": [4, 9]
+      }
+    },
+    {
+      "id": 8,
+      "title": "Serie A: Inter Milan vs AC Milan",
+      "teams": ["Inter Milan", "AC Milan"],
+      "score": "2-1",
+      "time": "Concluído",
+      "viewers": "1.9M",
+      "videoId": "FUJ01LiITpU",
+      "live": false,
+      "league": "Serie A",
+      "matchType": "derby",
+      "date": "2023-02-05T19:45:00Z",
+      "fullMatch": true,
+      "stats": {
+        "possession": [49, 51],
+        "shots": [14, 12],
+        "shotsOnTarget": [6, 5],
+        "corners": [6, 5],
+        "fouls": [11, 13]
+      }
+    },
+    {
+      "id": 9,
+      "title": "Copa do Brasil: Flamengo vs São Paulo",
+      "teams": ["Flamengo", "São Paulo"],
+      "score": "3-1",
+      "time": "Concluído",
+      "viewers": "876K",
+      "videoId": "tXvLld8jQGk",
+      "live": false,
+      "league": "Copa do Brasil",
+      "matchType": "knockout",
+      "date": "2023-01-15T22:00:00Z",
+      "fullMatch": true,
+      "stats": {
+        "possession": [53, 47],
+        "shots": [16, 9],
+        "shotsOnTarget": [8, 4],
+        "corners": [7, 3],
+        "fouls": [10, 15]
+      }
+    },
+    {
+      "id": 10,
+      "title": "Friendly: Brazil vs Argentina",
+      "teams": ["Brazil", "Argentina"],
+      "score": "2-3",
+      "time": "Concluído",
+      "viewers": "4.2M",
+      "videoId": "pF65JRQPtxU",
+      "live": false,
+      "league": "International Friendly",
+      "matchType": "friendly",
+      "date": "2023-03-23T00:00:00Z",
+      "highlights": true,
+      "stats": {
+        "possession": [55, 45],
+        "shots": [18, 11],
+        "shotsOnTarget": [7, 6],
+        "corners": [9, 4],
+        "fouls": [8, 16]
+      }
+    },
+    {
+      "id": 11,
+      "title": "World Cup 2022: Argentina vs France",
+      "teams": ["Argentina", "France"],
+      "score": "3-3 (4-2)",
+      "time": "Concluído",
+      "viewers": "8.7M",
+      "videoId": "VRERpxjkTGA",
+      "live": false,
+      "league": "FIFA World Cup",
+      "matchType": "final",
+      "date": "2022-12-18T15:00:00Z",
+      "fullMatch": true,
+      "commentary": ["English", "Spanish", "Portuguese"],
+      "stats": {
+        "possession": [53, 47],
+        "shots": [12, 10],
+        "shotsOnTarget": [6, 5],
+        "corners": [6, 5],
+        "fouls": [17, 19]
+      }
     }
   ]
 }

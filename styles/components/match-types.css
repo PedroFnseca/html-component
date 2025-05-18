@@ -1,0 +1,122 @@
+.badge-final {
+  border-left: 4px solid #ffc107;
+}
+
+.badge-knockout {
+  border-left: 4px solid #ff5722;
+}
+
+.badge-derby {
+  border-left: 4px solid #e91e63;
+}
+
+.badge-friendly {
+  border-left: 4px solid #4caf50;
+}
+
+.badge-championship {
+  border-left: 4px solid #2196f3;
+}
+
+.badge-group {
+  border-left: 4px solid #9c27b0;
+}
+
+.badge-default {
+  border-left: 4px solid #607d8b;
+}
+
+.status-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 10;
+}
+
+.status-live {
+  background-color: #e53935;
+  color: white;
+}
+
+.status-highlights {
+  background-color: #ff9800;
+  color: white;
+}
+
+.status-full {
+  background-color: #4caf50;
+  color: white;
+}
+
+.status-replay {
+  background-color: #607d8b;
+  color: white;
+}
+
+.match-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.match-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  margin-top: 5px;
+  font-size: 11px;
+  color: var(--text-secondary);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.match-day {
+  font-weight: 500;
+}
+
+.regular-score {
+  font-weight: 600;
+}
+
+.penalties {
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.7);
+  margin-left: 3px;
+}
+
+.banner-teams {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.banner-teams .team-badge {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.banner-score {
+  margin: 0 15px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.pulsing {
+  animation: pulseFade 2s infinite;
+}
+
+@keyframes pulseFade {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}

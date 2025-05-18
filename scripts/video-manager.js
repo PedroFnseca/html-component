@@ -22,12 +22,49 @@ async function initVideoManager() {
     return;
   }
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const videoId = urlParams.get('id');
+
+  let currentMatch;
+
+  if (videoId) {
+    currentMatch = matches.find((match) => match.videoId === videoId);
+  } else {
+    currentMatch = matches.find((match) => match.live) || matches[0];
+  }
+
+  if (currentMatch) {
+    loadVideo(currentMatch);
+  }
+
   setTimeout(() => {
-    setupVideoCards(matches);
+    setupVideoCards(matches, currentMatch);
   }, 500);
 }
 
-function setupVideoCards(matches) {
+function loadVideo(match) {
+  const videoPlayer = document.getElementById('video-player');
+  const videoTitle = document.getElementById('video-title');
+  const videoStats = document.getElementById('video-stats');
+
+  if (videoPlayer && videoTitle && videoStats && match) {
+    videoPlayer.src = `https://www.youtube.com/embed/${match.videoId}?si=jVomr6WqDGXnbhCX`;
+
+    videoTitle.textContent = match.title;
+
+    if (match.live) {
+      videoStats.textContent = `Ao vivo • ${match.viewers} espectadores`;
+    } else {
+      videoStats.textContent = `${match.viewers} visualizações • ${
+        match.time === 'Concluído' ? 'Partida finalizada' : match.time
+      }`;
+    }
+
+    document.title = `${match.title} - Lepy Streaming`;
+  }
+}
+
+function setupVideoCards(matches, currentMatch) {
   const featuredVideoIframe = document.querySelector('.video-container iframe');
   if (!featuredVideoIframe) return;
 
@@ -41,63 +78,23 @@ function setupVideoCards(matches) {
 
   const videoCards = document.querySelectorAll('.video-card');
   videoCards.forEach((card) => {
-    card.addEventListener('click', function () {
+    card.addEventListener('click', function (e) {
+      e.preventDefault();
       const videoId = this.getAttribute('data-video-id');
 
       if (!videoId) return;
 
       const clickedMatch = matches.find((match) => match.videoId === videoId);
 
-      if (clickedMatch && currentMatch) {
-        swapFeaturedVideo(clickedMatch, currentMatch);
-        currentMatch = clickedMatch;
+      if (clickedMatch) {
+        const url = new URL(window.location);
+        url.searchParams.set('id', videoId);
+        window.history.pushState({}, '', url);
+
+        loadVideo(clickedMatch);
       }
     });
   });
-}
-
-function swapFeaturedVideo(newFeaturedMatch, oldFeaturedMatch) {
-  const featuredVideoIframe = document.querySelector('.video-container iframe');
-  const featuredTitle = document.querySelector(
-    '.video-container .video-info h2'
-  );
-  const featuredInfo = document.querySelector('.video-container .video-info p');
-
-  if (featuredVideoIframe && featuredTitle && featuredInfo) {
-    featuredVideoIframe.setAttribute(
-      'src',
-      `https://www.youtube.com/embed/${newFeaturedMatch.videoId}?si=jVomr6WqDGXnbhCX`
-    );
-
-    featuredTitle.textContent = newFeaturedMatch.title;
-
-    if (newFeaturedMatch.live) {
-      featuredInfo.textContent = `Ao vivo • ${newFeaturedMatch.viewers} espectadores`;
-    } else {
-      featuredInfo.textContent = `${newFeaturedMatch.viewers} visualizações • Partida finalizada`;
-    }
-  }
-
-  const clickedVideoCard = findVideoCardByVideoId(newFeaturedMatch.videoId);
-
-  if (clickedVideoCard) {
-    const cardImg = clickedVideoCard.querySelector('img');
-    const cardTitle = clickedVideoCard.querySelector('h4');
-    const cardInfo = clickedVideoCard.querySelector('p');
-
-    if (cardImg && cardTitle && cardInfo) {
-      cardImg.setAttribute('src', getThumbnailUrl(oldFeaturedMatch.videoId));
-      cardTitle.textContent = oldFeaturedMatch.title;
-
-      if (oldFeaturedMatch.live) {
-        cardInfo.textContent = `Ao vivo • ${oldFeaturedMatch.viewers} espectadores`;
-      } else {
-        cardInfo.textContent = `${oldFeaturedMatch.viewers} visualizações • Partida finalizada`;
-      }
-
-      clickedVideoCard.setAttribute('data-video-id', oldFeaturedMatch.videoId);
-    }
-  }
 }
 
 function findVideoCardByVideoId(videoId) {
@@ -114,3 +111,7 @@ function findVideoCardByVideoId(videoId) {
 
   return null;
 }
+
+window.addEventListener('popstate', async function () {
+  await initVideoManager();
+});

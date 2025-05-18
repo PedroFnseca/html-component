@@ -1,0 +1,51 @@
+@import 'components/home.css';
+@import 'components/banner.css';
+@import 'components/stream-card.css';
+@import 'components/category-card.css';
+@import 'components/section.css';
+@import 'components/football-match.css';
+@import 'components/match-types.css';
+
+.home-container {
+  display: flex;
+}
+
+.home-content {
+  flex: 1;
+  padding: 20px;
+}
+
+@media (max-width: 1200px) {
+  .stream-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .stream-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .featured-banner {
+    height: 200px;
+  }
+}
+
+@media (max-width: 576px) {
+  .stream-grid,
+  .category-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .featured-banner {
+    height: 180px;
+  }
+  
+  .team-name {
+    font-size: 12px;
+  }
+}

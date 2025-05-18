@@ -1,0 +1,39 @@
+{
+  "categories": [
+    {
+      "id": "premier-league",
+      "name": "Premier League",
+      "image": "https://via.placeholder.com/188x250",
+      "viewers": "382K",
+      "channels": 20
+    },
+    {
+      "id": "la-liga",
+      "name": "La Liga",
+      "image": "https://via.placeholder.com/188x250",
+      "viewers": "215K",
+      "channels": 18
+    },
+    {
+      "id": "champions-league",
+      "name": "Champions League",
+      "image": "https://via.placeholder.com/188x250",
+      "viewers": "424K",
+      "channels": 32
+    },
+    {
+      "id": "bundesliga",
+      "name": "Bundesliga",
+      "image": "https://via.placeholder.com/188x250",
+      "viewers": "198K",
+      "channels": 16
+    },
+    {
+      "id": "serie-a",
+      "name": "Serie A",
+      "image": "https://via.placeholder.com/188x250",
+      "viewers": "156K",
+      "channels": 18
+    }
+  ]
+}
