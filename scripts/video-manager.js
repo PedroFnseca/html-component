@@ -1,3 +1,5 @@
+import { getThumbnailUrl, extractVideoId } from './utils/video.js';
+
 document.addEventListener('DOMContentLoaded', function() {
   initVideoManager();
 });
@@ -37,13 +39,11 @@ function setupVideoCards(matches) {
   const videoCards = document.querySelectorAll('.video-card');
   videoCards.forEach(card => {
     card.addEventListener('click', function() {
-      const img = this.querySelector('img');
-      const title = this.querySelector('h4');
+      const videoId = this.getAttribute('data-video-id');
       
-      if (!img || !title) return;
+      if (!videoId) return;
       
-      const clickedVideoSrc = img.getAttribute('src');
-      const clickedMatch = findMatchByThumbnail(matches, clickedVideoSrc);
+      const clickedMatch = matches.find(match => match.videoId === videoId);
       
       if (clickedMatch && currentMatch) {
         swapFeaturedVideo(clickedMatch, currentMatch);
@@ -70,7 +70,7 @@ function swapFeaturedVideo(newFeaturedMatch, oldFeaturedMatch) {
     }
   }
   
-  const clickedVideoCard = findVideoCardByMatch(newFeaturedMatch);
+  const clickedVideoCard = findVideoCardByVideoId(newFeaturedMatch.videoId);
   
   if (clickedVideoCard) {
     const cardImg = clickedVideoCard.querySelector('img');
@@ -78,7 +78,7 @@ function swapFeaturedVideo(newFeaturedMatch, oldFeaturedMatch) {
     const cardInfo = clickedVideoCard.querySelector('p');
     
     if (cardImg && cardTitle && cardInfo) {
-      cardImg.setAttribute('src', oldFeaturedMatch.thumbnail);
+      cardImg.setAttribute('src', getThumbnailUrl(oldFeaturedMatch.videoId));
       cardTitle.textContent = oldFeaturedMatch.title;
       
       if (oldFeaturedMatch.live) {
@@ -86,34 +86,23 @@ function swapFeaturedVideo(newFeaturedMatch, oldFeaturedMatch) {
       } else {
         cardInfo.textContent = `${oldFeaturedMatch.viewers} visualizações • Partida finalizada`;
       }
+      
+      clickedVideoCard.setAttribute('data-video-id', oldFeaturedMatch.videoId);
     }
   }
 }
 
-function findMatchByThumbnail(matches, thumbnailSrc) {
-  return matches.find(match => match.thumbnail === thumbnailSrc);
-}
-
-function findVideoCardByMatch(match) {
+function findVideoCardByVideoId(videoId) {
   const videoCards = document.querySelectorAll('.video-card');
   
   for (let i = 0; i < videoCards.length; i++) {
     const card = videoCards[i];
-    const title = card.querySelector('h4');
+    const cardVideoId = card.getAttribute('data-video-id');
     
-    if (title && title.textContent === match.title) {
+    if (cardVideoId && cardVideoId === videoId) {
       return card;
     }
   }
   
   return null;
-}
-
-function extractVideoId(videoUrl) {
-  if (!videoUrl) return null;
-  
-  const regex = /embed\/([^?&]+)/;
-  const match = videoUrl.match(regex);
-  
-  return match ? match[1] : null;
 }

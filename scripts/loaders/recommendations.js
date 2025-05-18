@@ -1,4 +1,5 @@
-import loader from './index.js'
+import loader from './index.js';
+import { getThumbnailUrl } from '../utils/video.js';
 
 async function loadRecommendations() {
   const url = '/components/recommendations.html';
@@ -38,7 +39,7 @@ function updateRecommendationsWithData(matches) {
       
       const img = card.querySelector('img');
       if (img) {
-        img.src = match.thumbnail;
+        img.src = getThumbnailUrl(match.videoId);
         img.alt = match.title;
       }
       
