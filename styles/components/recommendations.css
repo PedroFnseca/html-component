@@ -36,6 +36,7 @@
 .video-card .video-info {
   padding: 10px;
   background-color: var(--surface-color);
+  height: 100%;
 }
 
 .video-card::before {
