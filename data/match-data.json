@@ -11,6 +11,7 @@
       "live": true,
       "league": "Premier League",
       "featured": true,
+      "scheduledDate": "2025-10-01T16:00:00Z",
       "matchType": "championship",
       "stats": {
         "possession": [58, 42],

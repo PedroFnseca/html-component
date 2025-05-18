@@ -5,6 +5,8 @@ import {
   renderLiveMatch,
   formatMatchStats,
 } from '../utils/football-formatter.js';
+import { renderUpcomingMatch } from '../utils/upcoming-formatter.js';
+import { isUpcomingMatch } from '../utils/date-formatter.js';
 
 document.addEventListener('DOMContentLoaded', async function () {
   await loadHomeSections();
@@ -15,6 +17,7 @@ async function loadHomeSections() {
   const sectionsToLoad = [
     { id: 'featured-banner', path: '/components/home/banner.html' },
     { id: 'live-streams-section', path: '/components/home/live-streams.html' },
+    { id: 'upcoming-matches-section', path: '/components/home/upcoming-matches.html' },
     { id: 'categories-section', path: '/components/home/categories.html' },
     { id: 'recommendations-section', path: '/components/home/recommendations.html' },
   ];
@@ -45,10 +48,12 @@ async function loadFootballData() {
 
     const featuredMatch = findFeaturedMatch(footballData);
     const liveMatches = filterLiveMatches(footballData);
+    const upcomingMatches = filterUpcomingMatches(footballData);
     const recentMatches = filterRecentMatches(footballData);
 
     updateBanner(featuredMatch);
     updateLiveMatches(liveMatches);
+    updateUpcomingMatches(upcomingMatches);
     updateRecommendedMatches(recentMatches);
   } catch (error) {
     console.error('Erro ao carregar dados de partidas:', error);
@@ -72,9 +77,15 @@ function filterLiveMatches(matches) {
   return matches.filter((match) => match.live);
 }
 
+function filterUpcomingMatches(matches) {
+  return matches
+    .filter(match => isUpcomingMatch(match))
+    .sort((a, b) => new Date(a.scheduledDate) - new Date(b.scheduledDate));
+}
+
 function filterRecentMatches(matches) {
   return matches
-    .filter((match) => !match.live)
+    .filter((match) => !match.live && !isUpcomingMatch(match))
     .sort((a, b) => new Date(b.date) - new Date(a.date));
 }
 
@@ -107,6 +118,21 @@ function updateLiveMatches(liveMatches) {
   }
 }
 
+function updateUpcomingMatches(matches) {
+  const upcomingMatchesGrid = document.getElementById('upcoming-matches-grid');
+  if (!upcomingMatchesGrid) return;
+
+  if (matches.length > 0) {
+    upcomingMatchesGrid.innerHTML = matches
+      .map((match) => renderUpcomingMatch(match))
+      .join('');
+      
+    initNotificationBells();
+  } else {
+    upcomingMatchesGrid.innerHTML = '<p class="no-matches">Nenhuma partida agendada no momento.</p>';
+  }
+}
+
 function updateRecommendedMatches(matches) {
   const recommendedGrid = document.getElementById('recommended-videos-grid');
   if (!recommendedGrid) return;
@@ -118,4 +144,25 @@ function updateRecommendedMatches(matches) {
   } else {
     recommendedGrid.innerHTML = '<p class="no-matches">Nenhuma partida recente disponível.</p>';
   }
+}
+
+function initNotificationBells() {
+  document.querySelectorAll('.notification-bell').forEach(bell => {
+    bell.addEventListener('click', function() {
+      this.classList.toggle('active');
+      const matchId = this.closest('.upcoming-match-card').dataset.matchId;
+      
+      if (this.classList.contains('active')) {
+        saveNotificationPreference(matchId, true);
+      } else {
+        saveNotificationPreference(matchId, false);
+      }
+    });
+  });
+}
+
+function saveNotificationPreference(matchId, enabled) {
+  const preferences = JSON.parse(localStorage.getItem('matchNotifications') || '{}');
+  preferences[matchId] = enabled;
+  localStorage.setItem('matchNotifications', JSON.stringify(preferences));
 }

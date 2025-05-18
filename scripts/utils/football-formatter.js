@@ -96,8 +96,6 @@ export function renderFeaturedMatch(match) {
               <span class="banner-score">${homeScore} - ${awayScore}</span>
               <img src="/assets/teams/${getTeamSlug(match.teams[1])}.png" onerror="this.src='/assets/teams/default.webp'" class="team-badge">
             </div>
-            <h2 class="banner-title">${match.league}: ${match.teams[0]} vs ${match.teams[1]}</h2>
-            <p class="banner-description">${match.live ? 'Ao vivo • ' : ''}${match.viewers} espectadores${match.stadium ? ` • ${match.stadium}` : ''}</p>
           </div>
           <div class="banner-action">
             <a href="watch.html?id=${match.videoId}" class="watch-now-btn">Assistir agora</a>

@@ -5,6 +5,7 @@
 @import 'components/section.css';
 @import 'components/football-match.css';
 @import 'components/match-types.css';
+@import 'components/upcoming-match.css';
 
 .home-container {
   display: flex;
@@ -33,6 +34,10 @@
   .featured-banner {
     height: 200px;
   }
+  
+  .upcoming-matches {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
 }
 
 @media (max-width: 576px) {
@@ -47,5 +52,9 @@
   
   .team-name {
     font-size: 12px;
+  }
+  
+  .upcoming-matches {
+    grid-template-columns: 1fr;
   }
 }

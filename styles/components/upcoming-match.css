@@ -1,0 +1,121 @@
+.upcoming-matches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 15px;
+}
+
+.upcoming-match-card {
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.upcoming-match-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.upcoming-match-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: var(--accent-color-light);
+}
+
+.league-logo {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  object-fit: contain;
+}
+
+.match-league {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.match-date {
+  margin-left: auto;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.match-details {
+  padding: 15px;
+}
+
+.teams-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.team-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.team-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+.team-info h4 {
+  font-size: 14px;
+  text-align: center;
+  margin: 0;
+  max-width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.match-time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.vs {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.time {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+.match-meta {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-color);
+  padding-top: 12px;
+  margin-top: 5px;
+}
+
+.notification-bell {
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.notification-bell:hover {
+  color: var(--accent-color);
+}
+
+.notification-bell.active {
+  color: var(--accent-color);
+}
