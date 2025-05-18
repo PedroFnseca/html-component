@@ -1,0 +1,15 @@
+{
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.indentSize": "tabSize",
+  "javascript.format.semicolons": "insert",
+  "typescript.format.semicolons": "insert",
+  "prettier.semi": true,
+  "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "single",
+  "prettier.singleQuote": true,
+  "javascript.format.placeOpenBraceOnNewLine": false,
+  "typescript.format.placeOpenBraceOnNewLine": false,
+  "prettier.bracketSameLine": true
+}

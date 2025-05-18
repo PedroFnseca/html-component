@@ -4,9 +4,9 @@ export function getThumbnailUrl(videoId) {
 
 export function extractVideoId(videoUrl) {
   if (!videoUrl) return null;
-  
+
   const regex = /embed\/([^?&]+)/;
   const match = videoUrl.match(regex);
-  
+
   return match ? match[1] : null;
 }

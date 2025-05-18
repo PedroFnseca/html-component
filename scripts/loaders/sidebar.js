@@ -1,15 +1,15 @@
-import loader from './index.js'
+import loader from './index.js';
 
 function loadSidebar() {
-  const url = '/components/sidebar.html'
+  const url = '/components/sidebar.html';
 
   loader(url, function (response) {
-    const sidebar = document.querySelector('.sidebar')
-    
+    const sidebar = document.querySelector('.sidebar');
+
     if (sidebar) {
-      sidebar.innerHTML = response
+      sidebar.innerHTML = response;
     }
-  })
+  });
 }
 
-loadSidebar()
+loadSidebar();

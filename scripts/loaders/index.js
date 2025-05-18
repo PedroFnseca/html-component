@@ -1,4 +1,3 @@
-
 export default async (url, callback) => {
   try {
     const baseUrl = window.location.origin;
@@ -21,4 +20,4 @@ export default async (url, callback) => {
     console.error('Erro:', error);
     callback('');
   }
-}
+};
