@@ -1,6 +1,6 @@
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 15px;
 }
 
@@ -20,9 +20,9 @@
 }
 
 .category-card img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 5px;
+  border-radius: 4px;
+  width: 150px;
+  height: 150px;
 }
 
 .category-card h3 {
