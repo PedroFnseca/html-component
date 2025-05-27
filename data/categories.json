@@ -1,39 +1,39 @@
 {
   "categories": [
     {
-      "id": "premier-league",
       "name": "Premier League",
-      "image": "https://via.placeholder.com/188x250",
-      "viewers": "382K",
-      "channels": 20
+      "imageUrl": "/assets/categories/premier_league.png",
+      "viewers": "382K espectadores"
     },
     {
-      "id": "la-liga",
       "name": "La Liga",
-      "image": "https://via.placeholder.com/188x250",
-      "viewers": "215K",
-      "channels": 18
+      "imageUrl": "/assets/categories/la_liga.jpg",
+      "viewers": "215K espectadores"
     },
     {
-      "id": "champions-league",
       "name": "Champions League",
-      "image": "https://via.placeholder.com/188x250",
-      "viewers": "424K",
-      "channels": 32
+      "imageUrl": "/assets/categories/champions_league.png",
+      "viewers": "424K espectadores"
     },
     {
-      "id": "bundesliga",
       "name": "Bundesliga",
-      "image": "https://via.placeholder.com/188x250",
-      "viewers": "198K",
-      "channels": 16
+      "imageUrl": "/assets/categories/bundesliga.png",
+      "viewers": "198K espectadores"
     },
     {
-      "id": "serie-a",
       "name": "Serie A",
-      "image": "https://via.placeholder.com/188x250",
-      "viewers": "156K",
-      "channels": 18
+      "imageUrl": "/assets/categories/serie_a.png",
+      "viewers": "156K espectadores"
+    },
+    {
+      "name": "Copa Libertadores",
+      "imageUrl": "/assets/categories/libertadores.png",
+      "viewers": "145K espectadores"
+    },
+    {
+      "name": "Copa do Brasil",
+      "imageUrl": "/assets/categories/copa_do_brasil.jpg",
+      "viewers": "98K espectadores"
     }
   ]
 }

@@ -11,6 +11,7 @@ import { isUpcomingMatch } from '../utils/date-formatter.js';
 document.addEventListener('DOMContentLoaded', async function () {
   await loadHomeSections();
   loadFootballData();
+  loadCategories();
 });
 
 async function loadHomeSections() {
@@ -144,6 +145,44 @@ function updateRecommendedMatches(matches) {
   } else {
     recommendedGrid.innerHTML = '<p class="no-matches">Nenhuma partida recente disponível.</p>';
   }
+}
+
+async function loadCategories() {
+  try {
+    const response = await fetch('/data/categories.json');
+    const data = await response.json();
+    const categories = data.categories;
+    
+    updateCategories(categories);
+  } catch (error) {
+    console.error('Erro ao carregar categorias:', error);
+  }
+}
+
+function updateCategories(categories) {
+  const categoryGrid = document.querySelector('.category-grid');
+  if (!categoryGrid) return;
+  
+  if (categories && categories.length > 0) {
+    categoryGrid.innerHTML = categories
+      .map(category => renderCategoryCard(category))
+      .join('');
+  } else {
+    categoryGrid.innerHTML = '<p class="no-categories">Nenhuma liga disponível no momento.</p>';
+  }
+}
+
+function renderCategoryCard(category) {
+  return `
+    <a href="#" class="category-card">
+      <img src="${category.imageUrl}" 
+           onerror="this.src='/assets/categories/default.png'" 
+           alt="${category.name}" 
+           class="category-image" />
+      <h3>${category.name}</h3>
+      <p>${category.viewers}</p>
+    </a>
+  `;
 }
 
 function initNotificationBells() {
