@@ -1,5 +1,3 @@
-import { getThumbnailUrl, extractVideoId } from './utils/video.js';
-
 document.addEventListener('DOMContentLoaded', function () {
   initVideoManager();
 });
@@ -68,10 +66,6 @@ function setupVideoCards(matches, currentMatch) {
   const featuredVideoIframe = document.querySelector('.video-container iframe');
   if (!featuredVideoIframe) return;
 
-  const currentVideoUrl = featuredVideoIframe.getAttribute('src');
-  const currentVideoId = extractVideoId(currentVideoUrl);
-
-  let currentMatch = matches.find((match) => match.videoId === currentVideoId);
   if (!currentMatch && matches.length > 0) {
     currentMatch = matches[0];
   }
