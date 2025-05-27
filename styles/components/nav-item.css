@@ -24,6 +24,30 @@
   text-align: center;
 }
 
+.league-icon-container,
+.club-icon-container {
+  width: 25px;
+  height: 20px;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.league-icon,
+.club-icon {
+  max-width: 20px;
+  max-height: 20px;
+  object-fit: contain;
+  border-radius: 2px;
+}
+
+.nav-item.active .league-icon-container,
+.nav-item.active .club-icon-container {
+  background-color: transparent;
+}
+
 .league-icon {
   width: 20px;
   height: 20px;

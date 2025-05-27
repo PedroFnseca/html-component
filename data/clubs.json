@@ -1,0 +1,69 @@
+{
+  "clubs": [
+    {
+      "name": "Barcelona",
+      "imageUrl": "/assets/teams/barcelona.png",
+      "league": "La Liga"
+    },
+    {
+      "name": "Real Madrid",
+      "imageUrl": "/assets/teams/real_madrid.png",
+      "league": "La Liga"
+    },
+    {
+      "name": "Manchester City",
+      "imageUrl": "/assets/teams/manchester_city.jpg",
+      "league": "Premier League"
+    },
+    {
+      "name": "Liverpool",
+      "imageUrl": "/assets/teams/liverpool.png",
+      "league": "Premier League"
+    },
+    {
+      "name": "Bayern Munich",
+      "imageUrl": "/assets/teams/bayern_munich.png",
+      "league": "Bundesliga"
+    },
+    {
+      "name": "Flamengo",
+      "imageUrl": "/assets/teams/flamengo.png",
+      "league": "Brasileirão"
+    },
+    {
+      "name": "Corinthians",
+      "imageUrl": "/assets/teams/corinthians.png",
+      "league": "Brasileirão"
+    },
+    {
+      "name": "Palmeiras",
+      "imageUrl": "/assets/teams/palmeiras.jpg",
+      "league": "Brasileirão"
+    },
+    {
+      "name": "São Paulo",
+      "imageUrl": "/assets/teams/sao_paulo.png",
+      "league": "Brasileirão"
+    },
+    {
+      "name": "Santos",
+      "imageUrl": "/assets/teams/santos.jpg",
+      "league": "Brasileirão"
+    },
+    {
+      "name": "Atletico Madrid",
+      "imageUrl": "/assets/teams/atletico_madrid.png",
+      "league": "La Liga"
+    },
+    {
+      "name": "Sevilla",
+      "imageUrl": "/assets/teams/sevilla.png",
+      "league": "La Liga"
+    },
+    {
+      "name": "River Plate",
+      "imageUrl": "/assets/teams/river_plate.png",
+      "league": "Primera División"
+    }
+  ]
+}
