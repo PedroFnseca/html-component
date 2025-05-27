@@ -13,6 +13,7 @@ async function initializeChat() {
   const chatMessages = document.getElementById('chat-messages');
   const chatInput = document.querySelector('.chat-input input');
   const chatButton = document.querySelector('.chat-input button');
+  clearChat();
 
   if (!chatMessages || !chatInput || !chatButton) return;
 
@@ -29,20 +30,6 @@ async function initializeChat() {
     comments = commentsData;
   } catch (error) {
     console.error('Erro ao carregar dados:', error);
-
-    users = [
-      { id: 1, username: 'FutebolFã92' },
-      { id: 2, username: 'CidadeAzul' },
-      { id: 3, username: 'DiaboVermelho23' },
-    ];
-
-    comments = {
-      general: [
-        'Que jogo incrível!',
-        'Esse time está jogando muito bem hoje!',
-        'O árbitro está errando demais!',
-      ],
-    };
   }
 
   function getRandomUser() {
@@ -78,17 +65,18 @@ async function initializeChat() {
     };
   }
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 2; i++) {
     const randomMsg = generateRandomMessage();
     addMessageToChat(randomMsg.author, randomMsg.text);
   }
+  scrollToBottom();
 
   setInterval(() => {
     const randomMsg = generateRandomMessage();
     addMessageToChat(randomMsg.author, randomMsg.text);
 
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  }, 5000);
+    scrollToBottom();
+  }, 4000 + Math.random() * 2000);
 
   chatButton.addEventListener('click', sendMessage);
   chatInput.addEventListener('keypress', function (e) {
@@ -102,7 +90,7 @@ async function initializeChat() {
     if (message) {
       addMessageToChat('Você', message);
       chatInput.value = '';
-      chatMessages.scrollTop = chatMessages.scrollHeight;
+      scrollToBottom();
     }
   }
 
@@ -127,5 +115,13 @@ async function initializeChat() {
     if (messages.length > 50) {
       chatMessages.removeChild(messages[0]);
     }
+  }
+
+  function clearChat() {
+    chatMessages.innerHTML = '';
+  }
+
+  function scrollToBottom() {
+    chatMessages.scrollTop = chatMessages.scrollHeight;
   }
 }

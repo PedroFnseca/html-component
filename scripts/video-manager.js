@@ -46,7 +46,12 @@ function loadVideo(match) {
   const videoStats = document.getElementById('video-stats');
 
   if (videoPlayer && videoTitle && videoStats && match) {
-    videoPlayer.src = `https://www.youtube.com/embed/${match.videoId}?si=jVomr6WqDGXnbhCX`;
+    videoPlayer.src = `https://www.youtube-nocookie.com/embed/${match.videoId}?autoplay=1&rel=0`;
+    
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
 
     videoTitle.textContent = match.title;
 
@@ -86,6 +91,10 @@ function setupVideoCards(matches, currentMatch) {
         window.history.pushState({}, '', url);
 
         loadVideo(clickedMatch);
+        
+        if (typeof initializeChat === 'function') {
+          initializeChat();
+        }
       }
     });
   });

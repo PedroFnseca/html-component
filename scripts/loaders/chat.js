@@ -10,6 +10,11 @@ function loadChat() {
       chatContainer.innerHTML = response;
 
       setTimeout(() => {
+        const existingScript = document.querySelector('script[src="/scripts/chat.js"]');
+        if (existingScript) {
+          existingScript.remove();
+        }
+        
         const chatScript = document.createElement('script');
         chatScript.src = '/scripts/chat.js';
         document.body.appendChild(chatScript);
