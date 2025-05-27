@@ -5,6 +5,37 @@ import {
   formatMatchScore
 } from './match-types.js';
 
+let clubsCache = null;
+
+async function fetchClubs() {
+  if (clubsCache) return clubsCache;
+  
+  try {
+    const response = await fetch('/data/clubs.json');
+    const data = await response.json();
+    clubsCache = data.clubs;
+    return clubsCache;
+  } catch (error) {
+    console.error('Erro ao carregar dados dos clubes:', error);
+    return [];
+  }
+}
+
+async function getTeamImageUrl(teamName) {
+  try {
+    const clubs = await fetchClubs();
+    const club = clubs.find(c => c.name.toLowerCase() === teamName.toLowerCase());
+    
+    if (club && club.imageUrl) {
+      return club.imageUrl;
+    }
+    return `/assets/teams/${getTeamSlug(teamName)}.png`;
+  } catch (error) {
+    console.error('Erro ao buscar imagem do time:', error);
+    return `/assets/teams/${getTeamSlug(teamName)}.png`;
+  }
+}
+
 export function formatMatchStats(match) {
   if (match.live) {
     return `${match.viewers} espectadores • ${formatMatchScore(match)} (${formatMatchTime(match)})`;
@@ -14,7 +45,7 @@ export function formatMatchStats(match) {
 }
 
 export function getLeagueBadge(match) {
-  const leagueClass = match.league ? match.league.toLowerCase().replace(/\s+/g, '-') : 'generic';
+  const leagueClass = match.league ? match.league.toLowerCase().replace(/\s+/g, '_') : 'generic';
   return `<span class="league-badge ${leagueClass}">${match.league || 'Amistoso'}</span>`;
 }
 
@@ -40,10 +71,13 @@ export function renderMatchCard(match) {
   `;
 }
 
-export function renderLiveMatch(match) {
+export async function renderLiveMatch(match) {
   const scores = match.score.split('-');
   const homeScore = scores[0].trim();
   const awayScore = scores[1] ? scores[1].trim() : '0';
+  
+  const team1ImageUrl = await getTeamImageUrl(match.teams[0]);
+  const team2ImageUrl = await getTeamImageUrl(match.teams[1]);
   
   return `
     <a href="watch.html?id=${match.videoId}" class="stream-card live-match">
@@ -61,12 +95,12 @@ export function renderLiveMatch(match) {
         </div>
         <div class="match-details">
           <div class="team-row">
-            <img src="/assets/teams/${getTeamSlug(match.teams[0])}.png" onerror="this.src='/assets/teams/default.webp'" alt="${match.teams[0]}" class="team-badge">
+            <img src="${team1ImageUrl}" onerror="this.src='/assets/teams/default.png'" alt="${match.teams[0]}" class="team-badge">
             <p class="team-name">${match.teams[0]}</p>
             <span class="team-score">${homeScore}</span>
           </div>
           <div class="team-row">
-            <img src="/assets/teams/${getTeamSlug(match.teams[1])}.png" onerror="this.src='/assets/teams/default.webp'" alt="${match.teams[1]}" class="team-badge">
+            <img src="${team2ImageUrl}" onerror="this.src='/assets/teams/default.png'" alt="${match.teams[1]}" class="team-badge">
             <p class="team-name">${match.teams[1]}</p>
             <span class="team-score">${awayScore}</span>
           </div>
@@ -76,10 +110,13 @@ export function renderLiveMatch(match) {
   `;
 }
 
-export function renderFeaturedMatch(match) {
+export async function renderFeaturedMatch(match) {
   const scores = match.score.split('-');
   const homeScore = scores[0].trim();
   const awayScore = scores[1] ? scores[1].trim() : '0';
+  
+  const team1ImageUrl = await getTeamImageUrl(match.teams[0]);
+  const team2ImageUrl = await getTeamImageUrl(match.teams[1]);
   
   return `
     <div class="banner-slide active" data-match-id="${match.id}">
@@ -92,9 +129,9 @@ export function renderFeaturedMatch(match) {
         <div class="banner-content">
           <div class="banner-text">
             <div class="banner-teams">
-              <img src="/assets/teams/${getTeamSlug(match.teams[0])}.png" onerror="this.src='/assets/teams/default.webp'" class="team-badge">
+              <img src="${team1ImageUrl}" onerror="this.src='/assets/teams/default.png'" class="team-badge">
               <span class="banner-score">${homeScore} - ${awayScore}</span>
-              <img src="/assets/teams/${getTeamSlug(match.teams[1])}.png" onerror="this.src='/assets/teams/default.webp'" class="team-badge">
+              <img src="${team2ImageUrl}" onerror="this.src='/assets/teams/default.png'" class="team-badge">
             </div>
           </div>
           <div class="banner-action">
@@ -109,6 +146,6 @@ export function renderFeaturedMatch(match) {
 function getTeamSlug(teamName) {
   return teamName
     .toLowerCase()
-    .replace(/\s+/g, '-')
+    .replace(/\s+/g, '_')
     .replace(/[^\w\-]+/g, '');
 }

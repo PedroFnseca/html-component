@@ -3,6 +3,7 @@ import { getThumbnailUrl } from '../utils/video.js';
 import {
   renderMatchCard,
   renderLiveMatch,
+  renderFeaturedMatch,
   formatMatchStats,
 } from '../utils/football-formatter.js';
 import { renderUpcomingMatch } from '../utils/upcoming-formatter.js';
@@ -90,44 +91,39 @@ function filterRecentMatches(matches) {
     .sort((a, b) => new Date(b.date) - new Date(a.date));
 }
 
-function updateBanner(featuredMatch) {
+async function updateBanner(featuredMatch) {
   if (!featuredMatch) return;
 
-  const bannerImage = document.querySelector('.banner-image');
-  const bannerTitle = document.querySelector('.banner-title');
-  const bannerDescription = document.querySelector('.banner-description');
-  const bannerLink = document.querySelector('.watch-now-btn');
-
-  if (bannerImage && bannerTitle && bannerDescription && bannerLink) {
-    bannerImage.src = getThumbnailUrl(featuredMatch.videoId);
-    bannerTitle.textContent = featuredMatch.title;
-    bannerDescription.textContent = `Ao vivo • ${formatMatchStats(featuredMatch)}`;
-    bannerLink.href = `watch.html?id=${featuredMatch.videoId}`;
-  }
+  const bannerContainer = document.querySelector('.banner-slider');
+  if (!bannerContainer) return;
+  
+  const renderedBanner = await renderFeaturedMatch(featuredMatch);
+  bannerContainer.innerHTML = renderedBanner;
 }
 
-function updateLiveMatches(liveMatches) {
+async function updateLiveMatches(liveMatches) {
   const liveMatchesGrid = document.getElementById('live-streams-grid');
   if (!liveMatchesGrid) return;
 
   if (liveMatches.length > 0) {
-    liveMatchesGrid.innerHTML = liveMatches
-      .map((match) => renderLiveMatch(match))
-      .join('');
+    const matchPromises = liveMatches.map(match => renderLiveMatch(match));
+    const renderedMatches = await Promise.all(matchPromises);
+    liveMatchesGrid.innerHTML = renderedMatches.join('');
   } else {
     liveMatchesGrid.innerHTML = '<p class="no-matches">Nenhuma partida ao vivo no momento.</p>';
   }
 }
 
-function updateUpcomingMatches(matches) {
+async function updateUpcomingMatches(matches) {
   const upcomingMatchesGrid = document.getElementById('upcoming-matches-grid');
   if (!upcomingMatchesGrid) return;
 
   if (matches.length > 0) {
-    upcomingMatchesGrid.innerHTML = matches
-      .map((match) => renderUpcomingMatch(match))
-      .join('');
-      
+    const matchPromises = matches.map(match => renderUpcomingMatch(match));
+    const renderedMatches = await Promise.all(matchPromises);
+    
+    upcomingMatchesGrid.innerHTML = renderedMatches.join('');
+    
     initNotificationBells();
   } else {
     upcomingMatchesGrid.innerHTML = '<p class="no-matches">Nenhuma partida agendada no momento.</p>';

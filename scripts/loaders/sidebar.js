@@ -79,8 +79,6 @@ function updateClubsInSidebar(clubs) {
 }
 
 function renderClubItem(club) {
-  console.log(club);
-
   return `
     <div class="nav-item">
       <div class="club-icon-container">
