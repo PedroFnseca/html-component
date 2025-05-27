@@ -23,3 +23,11 @@
   width: 25px;
   text-align: center;
 }
+
+.league-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  object-fit: contain;
+  border-radius: 3px;
+}
